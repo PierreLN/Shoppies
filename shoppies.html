@@ -18,27 +18,24 @@
                         Movie title
                     </div>
                     <div class="input_search">
-                        <form action="" method="post">
-                            <img class="magnify_glass" src="/image/search.png" alt="">
-                            <input class="input_box" href="text" placeholder="Search..."></input>
-                        </form>
+                        <!-- <form action="" method="post"> -->
+                        <img class="magnify_glass" src="/image/search.png" alt="">
+                        <input class="input_box" placeholder="Search..." onkeydown="search(this)"></input>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
             <div class="results_and_nomination">
                 <div class="result_box boxes">
                     <h3>
-                        <div>
-                            Results for
+                        <div class="search_word">
+                            Results
                         </div> 
-                        <div id="search_result">
-                            <ul class="list_search">
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                            </ul>
-                        </div>
                     </h3>
+                    <div id="search_result">
+                        <ul class="list_search">
+                        </ul>
+                    </div>
                 </div>
                 <div class="nomination_box boxes">
                     <h3>
@@ -48,9 +45,6 @@
                     </h3>
                     <div>
                         <ul class="list_nomination">
-                            <li>4</li>
-                            <li>5</li>
-                            <li>6</li>
                         </ul>
                     </div>
                 </div>
