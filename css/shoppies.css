@@ -42,15 +42,6 @@ body {
     justify-content:space-around;
 }
 
-.result_box {
-}
-
-.nomination_box {
-}
-
-.list_search {
-}
-
 .list_ele {
     padding: 3px;
 }
@@ -59,3 +50,7 @@ body {
     padding: 3px;
     margin-left: 5px
 }
+
+.button_list_remove {
+    padding: 3px;
+    margin-left: 5px}

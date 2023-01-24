@@ -36,6 +36,14 @@ async function search(ele){
                 let button_remove = document.createElement('button')
                 button_remove.classList.add('button_list_remove')
                 button_remove.innerHTML = 'Remove'
+
+                button_nominate.disabled = true
+
+                button_remove.addEventListener('click', (f) => {
+                    nominated.remove()
+                    button_nominate.disabled = false
+                })
+
                 
                 nominated.appendChild(button_remove)
                 ul_nominate.appendChild(nominated)  
