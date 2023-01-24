@@ -8,18 +8,24 @@ body {
     background: #c6cfe9;
 }
 
-.input_main {
-    width:auto;
-    height: fit-content;
-    border: 1px solid black;
+.boxes {
+    border: 1px solid gainsboro;
     border-radius: 10px;
     padding: 1%;
+    background-color: white;
+    width: 100%;
+    margin: 5px;
+}
+
+.input_main {
+    width: auto;
 }
 
 .input_search {
-    background-color: white;
     border-radius: 5px;
     padding-left: 5px;
+    border: 2px solid gainsboro;
+    height: 20px;
 }
 
 .magnify_glass {
@@ -29,5 +35,15 @@ body {
 .input_box {
     border: none;
     width: 90%;
-    height: 100%;
+}
+
+.results_and_nomination {
+    display: flex;
+    justify-content:space-around;
+}
+
+.result_box {
+}
+
+.nomination_box {
 }
