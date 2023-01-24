@@ -1,0 +1,33 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #c6cfe9;
+}
+
+.input_main {
+    width:auto;
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.input_search {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.magnify_glass {
+    height: 10px;
+}
+
+.input_box {
+    border: none;
+    width: 90%;
+    height: 100%;
+}
