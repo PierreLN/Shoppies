@@ -1,0 +1,6 @@
+.result_And_nomination {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+}

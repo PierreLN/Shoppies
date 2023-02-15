@@ -1,6 +1,5 @@
-import SearchBar from "./component/searchBar";
-import ResultBar from "./component/resultBar";
-import NominationBar from "./component/nominationBar";
+import ResultAndNomination from "./component/Movie/result_And_nomination";
+import SearchBar from "./component/Movie/searchBar";
 import "./App.css";
 
 async function search(ele) {
@@ -27,15 +26,10 @@ function App() {
     <div>
       <body>
         <div>
-          <div class="main_boxes">
-            <h1>The Shoppies</h1>
-            <SearchBar></SearchBar>
-          </div>
-          <div class="results_and_nomination">
-            <ResultBar></ResultBar>
-            <NominationBar></NominationBar>
-          </div>
+          <h1 className="title">The Shoppies</h1>
         </div>
+        <SearchBar></SearchBar>
+        <ResultAndNomination></ResultAndNomination>
       </body>
     </div>
   );
