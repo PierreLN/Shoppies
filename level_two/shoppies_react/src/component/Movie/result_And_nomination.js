@@ -1,18 +1,42 @@
+import React, { useState } from "react";
 import ResultBar from "./resultBar";
 import NominationBar from "./nominationBar";
 import styles from "./styles/result_And_nomination.module.css";
 
 const Result_And_nomination = (props) => {
-  const a =(e) => {
-    console.log(e)
-  }
+  const [nominationList, setNominationList] = useState([]);
+  const [resultList, setResultList] = useState(props.itemsList)
+
+  const nominationHandler = (newData) => {
+
+    const filteredResult = resultList.filter((element) => {
+      return newData.id !== element.id
+    })
+
+    setResultList(filteredResult)
+
+    setNominationList((prevData) => {
+      return [newData, ...prevData];
+    });
+  };
+
+  const removeHandler = (data) => {
+    const filteredList = nominationList.filter((element) => {
+      return element.id !== data.id;
+    });
+    setNominationList(filteredList);
+  };
+
   return (
     <div className={styles.result_And_nomination}>
       <ResultBar
-        itemsList={props.itemsList}
-        onNominate={a}
+        itemsList={resultList}
+        onNominate={nominationHandler}
       ></ResultBar>
-      <NominationBar nominationList={props.itemsList}></NominationBar>
+      <NominationBar
+        nominationList={nominationList}
+        onRemove={removeHandler}
+      ></NominationBar>
     </div>
   );
 };
