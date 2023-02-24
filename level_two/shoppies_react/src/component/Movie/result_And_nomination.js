@@ -5,15 +5,14 @@ import styles from "./styles/result_And_nomination.module.css";
 
 const Result_And_nomination = (props) => {
   const [nominationList, setNominationList] = useState([]);
-  const [resultList, setResultList] = useState(props.itemsList)
+  const [resultList, setResultList] = useState(props.itemsList);
 
   const nominationHandler = (newData) => {
-
     const filteredResult = resultList.filter((element) => {
-      return newData.id !== element.id
-    })
+      return newData.id !== element.id;
+    });
 
-    setResultList(filteredResult)
+    setResultList(filteredResult);
 
     setNominationList((prevData) => {
       return [newData, ...prevData];
@@ -25,6 +24,10 @@ const Result_And_nomination = (props) => {
       return element.id !== data.id;
     });
     setNominationList(filteredList);
+
+    setResultList((prevData) => {
+      return [...prevData, data];
+    });
   };
 
   return (

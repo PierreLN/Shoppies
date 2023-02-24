@@ -10,7 +10,7 @@ export default function NominationBar(props) {
         <h3>
           <div>Nominations</div>
         </h3>
-        <div>No data</div>
+        <div>No data...</div>
       </Card>
     );
   }
