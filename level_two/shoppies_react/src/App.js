@@ -22,16 +22,19 @@ async function search(ele) {
 }
 
 function App() {
+  const itemsTest = [
+    { id: 1, title: "Marvel", year: 2020 },
+    { id: 2, title: "DC", year: 2021 },
+  ];
+
   return (
-    <div>
-      <body>
+      <div className="main-page">
         <div>
           <h1 className="title">The Shoppies</h1>
         </div>
         <SearchBar></SearchBar>
-        <ResultAndNomination></ResultAndNomination>
-      </body>
-    </div>
+        <ResultAndNomination itemsList={itemsTest}></ResultAndNomination>
+      </div>
   );
 }
 

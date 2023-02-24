@@ -1,8 +1,8 @@
 
 .input_main {
-  width: 90%;
-  margin: 5%;
-  padding: 2%;
+  width: 98%;
+  margin: 1%;
+  padding: 1%;
 }
 
 .input_search {
@@ -13,10 +13,10 @@
   }
   
   .magnify_glass {
-    height: 10px;
+    height: 18px;
   }
   
   .input_box {
     border: none;
-    width: 90%;
+    width: 97%;
   }
