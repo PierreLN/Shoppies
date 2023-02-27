@@ -6,7 +6,7 @@ export default function ResultBar(props) {
   return (
     <Card className={styles.result_box}>
       <h3>
-        <div className={styles.search_word}>Results</div>
+        <div className={styles.search_word}>Results for: {props.movieName}</div>
       </h3>
       <div id="search_result">
         <ul className={styles.list_search}></ul>

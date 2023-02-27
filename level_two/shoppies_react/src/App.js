@@ -29,10 +29,11 @@ function App() {
   ];
 
   const [movieList, setMovieList] = useState(itemsTest);
+  const [movieSearchName, setMovieSearchName] = useState("");
 
-  const inputHanlder = (newMovieList) => {
+  const inputHanlder = (newMovieList, movieName) => {
+    setMovieSearchName(movieName);
     setMovieList(newMovieList);
-    console.log(newMovieList.lenght);
   };
 
   return (
@@ -41,7 +42,11 @@ function App() {
         <h1 className="title">The Shoppies</h1>
       </div>
       <SearchBar onInput={inputHanlder}></SearchBar>
-      <ResultAndNomination key={Math.random()} itemsList={movieList}></ResultAndNomination>
+      <ResultAndNomination
+        key={Math.random()}
+        itemsList={movieList}
+        movieName={movieSearchName}
+      ></ResultAndNomination>
     </div>
   );
 }

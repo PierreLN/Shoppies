@@ -35,6 +35,7 @@ const Result_And_nomination = (props) => {
       <ResultBar
         itemsList={resultList}
         onNominate={nominationHandler}
+        movieName={props.movieName}
       ></ResultBar>
       <NominationBar
         nominationList={nominationList}
