@@ -5,27 +5,34 @@ import styles2 from "./styles/searchBar.module.css";
 import magnify_glass from "../../image/search.png";
 
 const SearchForm = (props) => {
-  const itemsTest2 = [
-    { id: 3, title: "test", year: 123 },
-    { id: 4, title: "testest", year: 21 },
-    { id: 5, title: "testestest", year: 1 },
-  ];
+  async function search(word) {
+    let key = "e626c0fc";
+    let api_url = "https://www.omdbapi.com/?t=" + word + "&apikey=" + key;
+    let responce = await fetch(api_url);
+    let data = await responce.json();
+    let array = [];
+
+    if (data["Response"] === "True") {
+      let movieTitle = data["Title"];
+      let movieYear = data["Year"];
+      array.push({ id: Math.random(), title: movieTitle, year: movieYear });
+    }
+    return array;
+  }
 
   const movieInputRef = useRef();
-
-  const updateList = (event) => {
+  const updateList = async (event) => {
     event.preventDefault();
 
     const movieName = movieInputRef.current.value;
-
-    console.log(movieName);
-    props.onInput(itemsTest2, movieName);
+    const searchResult = await search(movieName);
+    props.onInput(searchResult, movieName);
 
     movieInputRef.current.value = "";
   };
 
   return (
-    <form className={styles["form-control"]} onSubmit={updateList}>
+    <form className={styles.searchForm} onSubmit={updateList}>
       <img className={styles2.magnify_glass} src={magnify_glass} alt=""></img>
       <input
         type="text"
