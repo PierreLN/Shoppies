@@ -3,6 +3,7 @@ import styles from "./styles/nominationList.module.css";
 import Button from "../UI/Button";
 
 const NominationList = (props) => {
+
   const onRemove = () => {
     props.onRemove(props);
   };

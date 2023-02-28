@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./styles/resultList.module.css";
-import Card from "../UI/Card";
 import Button from "../UI/Button";
 
 const ResultList = (props) => {

@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ResultBar from "./resultBar";
 import NominationBar from "./nominationBar";
 import styles from "./styles/result_And_nomination.module.css";
 
 const Result_And_nomination = (props) => {
-  const [nominationList, setNominationList] = useState([]);
+
+  let savedNomination = JSON.parse(localStorage.getItem('Nomination'))
+  let nomination = []
+  if (savedNomination.length !== 0) {
+    nomination = savedNomination
+  }
+
+  const [nominationList, setNominationList] = useState(nomination);
   const [resultList, setResultList] = useState(props.itemsList);
+  
+    useEffect(() => {
+      localStorage.setItem('Nomination', JSON.stringify(nominationList))
+    }, [nominationList])
 
   const nominationHandler = (newData) => {
     const filteredResult = resultList.filter((element) => {
@@ -17,17 +28,21 @@ const Result_And_nomination = (props) => {
     setNominationList((prevData) => {
       return [newData, ...prevData];
     });
+
   };
 
   const removeHandler = (data) => {
     const filteredList = nominationList.filter((element) => {
       return element.id !== data.id;
     });
-    setNominationList(filteredList);
+    setNominationList(() => {
+      return filteredList;
+    });
 
     setResultList((prevData) => {
       return [...prevData, data];
     });
+    
   };
 
   return (
