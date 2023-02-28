@@ -14,8 +14,8 @@ const SearchForm = (props) => {
 
     if (data["Response"] === "True") {
       for (let i = 0; i < 5; i++) {
-        let movieTitle = data['Search'][i]["Title"];
-        let movieYear = data['Search'][i]["Year"];
+        let movieTitle = data["Search"][i]["Title"];
+        let movieYear = data["Search"][i]["Year"];
         array.push({ id: Math.random(), title: movieTitle, year: movieYear });
       }
     }
@@ -27,6 +27,7 @@ const SearchForm = (props) => {
     event.preventDefault();
 
     const movieName = movieInputRef.current.value;
+
     const searchResult = await search(movieName);
     props.onInput(searchResult, movieName);
 
