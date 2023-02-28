@@ -7,15 +7,17 @@ import magnify_glass from "../../image/search.png";
 const SearchForm = (props) => {
   async function search(word) {
     let key = "e626c0fc";
-    let api_url = "https://www.omdbapi.com/?t=" + word + "&apikey=" + key;
+    let api_url = "https://www.omdbapi.com/?s=" + word + "&apikey=" + key;
     let responce = await fetch(api_url);
     let data = await responce.json();
     let array = [];
 
     if (data["Response"] === "True") {
-      let movieTitle = data["Title"];
-      let movieYear = data["Year"];
-      array.push({ id: Math.random(), title: movieTitle, year: movieYear });
+      for (let i = 0; i < 5; i++) {
+        let movieTitle = data['Search'][i]["Title"];
+        let movieYear = data['Search'][i]["Year"];
+        array.push({ id: Math.random(), title: movieTitle, year: movieYear });
+      }
     }
     return array;
   }
