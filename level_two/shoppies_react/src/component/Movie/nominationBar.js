@@ -3,7 +3,6 @@ import Card from "../UI/Card";
 import NominationList from "./nominationList";
 
 export default function NominationBar(props) {
-
   if (props.nominationList.length === 0) {
     return (
       <Card className={styles.nomination_box}>

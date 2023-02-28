@@ -3,7 +3,6 @@ import styles from "./styles/resultList.module.css";
 import Button from "../UI/Button";
 
 const ResultList = (props) => {
-
   const nominateHandler = () => {
     props.onNominate(props);
   };

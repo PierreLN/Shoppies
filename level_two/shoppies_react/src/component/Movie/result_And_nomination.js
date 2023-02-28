@@ -4,19 +4,18 @@ import NominationBar from "./nominationBar";
 import styles from "./styles/result_And_nomination.module.css";
 
 const Result_And_nomination = (props) => {
-
-  let savedNomination = JSON.parse(localStorage.getItem('Nomination'))
-  let nomination = []
+  let savedNomination = JSON.parse(localStorage.getItem("Nomination"));
+  let nomination = [];
   if (savedNomination.length !== 0) {
-    nomination = savedNomination
+    nomination = savedNomination;
   }
 
   const [nominationList, setNominationList] = useState(nomination);
   const [resultList, setResultList] = useState(props.itemsList);
-  
-    useEffect(() => {
-      localStorage.setItem('Nomination', JSON.stringify(nominationList))
-    }, [nominationList])
+
+  useEffect(() => {
+    localStorage.setItem("Nomination", JSON.stringify(nominationList));
+  }, [nominationList]);
 
   const nominationHandler = (newData) => {
     const filteredResult = resultList.filter((element) => {
@@ -28,7 +27,6 @@ const Result_And_nomination = (props) => {
     setNominationList((prevData) => {
       return [newData, ...prevData];
     });
-
   };
 
   const removeHandler = (data) => {
@@ -42,7 +40,6 @@ const Result_And_nomination = (props) => {
     setResultList((prevData) => {
       return [...prevData, data];
     });
-    
   };
 
   return (
