@@ -1,0 +1,24 @@
+
+.input_main {
+  width: 98%;
+  margin: 1%;
+  padding: 1%;
+}
+
+.input_search {
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 2px solid gainsboro;
+    height: 15px;
+  }
+  
+  .magnify_glass {
+    height: 26px;
+    float: left;
+  }
+  
+  .input_box {
+    border: none;
+    width: 50%;
+    float: left;
+  }
