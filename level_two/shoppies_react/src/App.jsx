@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ResultAndNomination from "./component/Movie/result_And_nomination";
+import ResultAndNomination from "./component/Movie/ResultAndNomination";
 import SearchBar from "./component/Movie/searchBar";
 import "./App.css";
 
@@ -15,6 +15,7 @@ function App() {
   const inputHanlder = (newMovieList, movieName) => {
     setMovieSearchName(movieName);
     setMovieList(newMovieList);
+    console.log(movieList, "app level")
   };
 
   return (
@@ -24,7 +25,6 @@ function App() {
       </div>
       <SearchBar onInput={inputHanlder}></SearchBar>
       <ResultAndNomination
-        key={Math.random()}
         itemsList={movieList}
         movieName={movieSearchName}
       ></ResultAndNomination>

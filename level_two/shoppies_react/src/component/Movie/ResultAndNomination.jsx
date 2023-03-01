@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import ResultBar from "./resultBar";
 import NominationBar from "./nominationBar";
-import styles from "./styles/result_And_nomination.module.css";
+import styles from "./styles/resultAndNomination.module.css";
 
-const Result_And_nomination = (props) => {
+const ResultAndNomination = (props) => {
   let savedNomination = JSON.parse(localStorage.getItem("Nomination"));
   let nomination = [];
   if (savedNomination.length !== 0) {
     nomination = savedNomination;
   }
 
+  
   const [nominationList, setNominationList] = useState(nomination);
   const [resultList, setResultList] = useState(props.itemsList);
-
+  
+  useEffect(() => {setResultList(props.itemsList)}, [props.itemsList])
   useEffect(() => {
     localStorage.setItem("Nomination", JSON.stringify(nominationList));
   }, [nominationList]);
-
+  
+  console.log(props.itemsList, resultList);
   const nominationHandler = (newData) => {
     const filteredResult = resultList.filter((element) => {
       return newData.id !== element.id;
@@ -43,7 +46,7 @@ const Result_And_nomination = (props) => {
   };
 
   return (
-    <div className={styles.result_And_nomination}>
+    <div className={styles.resultAndNomination}>
       <ResultBar
         itemsList={resultList}
         onNominate={nominationHandler}
@@ -57,4 +60,4 @@ const Result_And_nomination = (props) => {
   );
 };
 
-export default Result_And_nomination;
+export default ResultAndNomination;
