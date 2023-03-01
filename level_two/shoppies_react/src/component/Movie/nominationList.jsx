@@ -3,13 +3,14 @@ import styles from "./styles/nominationList.module.css";
 import Button from "../UI/Button";
 
 const NominationList = (props) => {
-  const onRemove = () => {
+  const {title, year} = props
+  const onRemoveHandler = () => {
     props.onRemove(props);
   };
 
   return (
     <div className={styles.nominationList}>
-      {props.title} ({props.year})<Button onClick={onRemove}>Remove</Button>
+      {title} ({year})<Button onClick={onRemoveHandler}>Remove</Button>
     </div>
   );
 };

@@ -4,34 +4,17 @@ import styles2 from "./styles/searchBar.module.css";
 
 import magnify_glass from "../../image/search.png";
 
-const SearchForm = (props) => {
-  async function search(word) {
-    let key = "e626c0fc";
-    let api_url = "https://www.omdbapi.com/?s=" + word + "&apikey=" + key;
-    let responce = await fetch(api_url);
-    let data = await responce.json();
-    let array = [];
-
-    if (data["Response"] === "True") {
-      for (let i = 0; i < 5; i++) {
-        let movieTitle = data["Search"][i]["Title"];
-        let movieYear = data["Search"][i]["Year"];
-        array.push({ id: Math.random(), title: movieTitle, year: movieYear });
-      }
-    }
-    return array;
-  }
-
-  const movieInputRef = useRef();
+const SearchForm = ({ onSearchCompleted }) => {
+  const movieSearchRef = useRef();
   const updateList = async (event) => {
     event.preventDefault();
 
-    const movieName = movieInputRef.current.value;
+    const movieName = movieSearchRef.current.value;
 
     const searchResult = await search(movieName);
-    props.onInput(searchResult, movieName);
+    onSearchCompleted(searchResult, movieName);
 
-    movieInputRef.current.value = "";
+    movieSearchRef.current.value = "";
   };
 
   return (
@@ -42,10 +25,28 @@ const SearchForm = (props) => {
         className={styles2.input_box}
         placeholder="Search..."
         id="MovieName"
-        ref={movieInputRef}
+        ref={movieSearchRef}
       ></input>
     </form>
   );
 };
+
+async function search(word) {
+  let key = "e626c0fc";
+  let api_url = "https://www.omdbapi.com/?s=" + word + "&apikey=" + key;
+  let responce = await fetch(api_url);
+  let data = await responce.json();
+  let array = [];
+
+  if (data["Response"] === "True") {
+    for (let i = 0; i < 5; i++) {
+      let movieTitle = data["Search"][i]["Title"];
+      let movieYear = data["Search"][i]["Year"];
+      array.push({ id: Math.random(), title: movieTitle, year: movieYear });
+    }
+  }
+  return array;
+}
+
 
 export default SearchForm;

@@ -8,7 +8,7 @@ export default function SearchBar(props) {
       <h2>Movie title</h2>
       <SearchForm
         className={styles.input_search}
-        onInput={props.onInput}
+        onSearchCompleted={props.onSearchCompleted}
       ></SearchForm>
     </Card>
   );

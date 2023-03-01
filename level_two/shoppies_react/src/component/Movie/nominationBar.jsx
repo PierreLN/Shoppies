@@ -2,9 +2,8 @@ import styles from "./styles/nominationBar.module.css";
 import Card from "../UI/Card";
 import NominationList from "./nominationList";
 
-export default function NominationBar(props) {
+export default function NominationBar({nominationList, onRemove}) {
   
-  const {nominationList, onRemove} = props
   return (
     <Card className={styles.nomination_box}>
       <h3>
@@ -15,8 +14,7 @@ export default function NominationBar(props) {
   );
 }
 
-const NominationBarContent = (props) => {
-  const {nominationList, onRemove} = props
+const NominationBarContent = ({nominationList, onRemove}) => {
 
   if (nominationList.length === 0) {
     return <div>No data...</div>;
