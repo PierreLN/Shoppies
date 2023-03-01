@@ -1,0 +1,36 @@
+.searchForm {
+    margin: 0.5rem 0;
+    overflow: hidden;
+  }
+  
+  .searchForm label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .searchForm input {
+    display: block;
+    width: 90%;
+    border: 1px solid #ccc;
+    font: inherit;
+    line-height: 1.5rem;
+    padding: 0 0.25rem;
+  }
+  
+  .searchForm input:focus {
+    outline: none;
+    background: #8bd1f5;
+    border-color: #799cef;
+  }
+  
+  .searchFormcontrol.invalid input {
+    background: #ffd7d7;
+    border-color: red;
+  }
+  
+  .forsearchFormtrol.invalid label {
+    color: red;
+  }
+  
+  
